@@ -116,7 +116,7 @@
    (keywords        magenta)
    (type            dark-blue)
    (numbers         orange)
-   (operators       teal)
+   (operators       fg)
    (success         green)
    (error           red)
    (warning         yellow)
