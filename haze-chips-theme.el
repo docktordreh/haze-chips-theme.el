@@ -204,7 +204,8 @@
     :background (doom-blend (doom-lighten strings 0.2) bg 0.37))
 
    (font-lock-keyword-face
-    :foreground fg)
+    :foreground fg
+    :height 1.0)
 ;;; --- org mode -------------------------------------------------------
    (org-document-title
     :foreground fg
@@ -278,7 +279,14 @@
    (org-code
     :foreground fg
     :background (doom-blend light-magenta bg 0.4)
-    :weight 'normal)
+    :weight 'normal
+    :height 1.0)
+
+   ;; Agent Shell renders Markdown inline code through `org-code'. Keep it at
+   ;; body size so paths and identifiers do not shrink inside diff lines.
+   (agent-shell-markdown-inline-code
+    :inherit 'org-code
+    :height 1.0)
    
    (org-verbatim
     :foreground fg
@@ -433,18 +441,66 @@
    ;; ---- Markdown ---------------------------------------------------------
    (markdown-code-face
     :foreground base0
+    :weight 'bold
+    :height 1.0)
+
+   ;; ---- Built-in diff-mode -----------------------------------------------
+   ;; Do not inherit `hl-line' here: it makes additions look like selected
+   ;; lines and leaves the light green foreground too low-contrast.
+   (diff-added
+    :foreground dark-green
+    :background (doom-blend green bg 0.14))
+   (diff-removed
+    :foreground dark-red
+    :background (doom-blend red bg 0.14))
+   (diff-context
+    :foreground fg
+    :background bg)
+   (diff-header
+    :foreground dark-blue
+    :weight 'bold)
+   (diff-file-header
+    :foreground fg
+    :weight 'bold)
+   (diff-hunk-header
+    :foreground dark-magenta
+    :background bg-alt
+    :weight 'bold)
+   (diff-refine-added
+    :foreground base0
+    :background (doom-blend light-green bg 0.5)
+    :weight 'bold)
+   (diff-refine-removed
+    :foreground base0
+    :background (doom-blend light-red bg 0.5)
     :weight 'bold)
 
 
    ;; ---- Magit diffs ------------------------------------------------------
+   (magit-diff-added
+    :foreground dark-green
+    :background (doom-blend green bg 0.14))
    (magit-diff-added-highlight
-    :foreground (doom-blend green fg 0.8)
-    :background (doom-blend green bg 0.18)
+    :foreground base0
+    :background (doom-blend light-green bg 0.5)
     :weight 'bold)
+   (magit-diff-removed
+    :foreground dark-red
+    :background (doom-blend red bg 0.14))
    (magit-diff-removed-highlight
-    :foreground (doom-blend red fg 0.78)
-    :background (doom-blend red bg 0.16)
+    :foreground base0
+    :background (doom-blend light-red bg 0.5)
     :weight 'bold)
+   (magit-diff-context
+    :foreground fg
+    :background bg)
+   (magit-diff-context-highlight
+    :foreground fg
+    :background bg-alt)
+   (magit-diff-hunk-heading
+    :inherit 'diff-hunk-header)
+   (magit-diff-hunk-heading-highlight
+    :inherit 'diff-file-header)
    (magit-branch-local
     :foreground (doom-blend green fg 0.75)
     :weight 'medium)
