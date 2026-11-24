@@ -444,6 +444,37 @@
     :weight 'bold
     :height 1.0)
 
+   ;; Headings: the org-level colors and weights, plus a size step per level
+   ;; from `org-document-title' height down to body text.  Keep
+   ;; `markdown-header-scaling' off, or markdown-mode overrides the heights.
+   (markdown-header-face-1
+    :foreground dark-blue
+    :weight 'bold
+    :height 1.25)
+
+   (markdown-header-face-2
+    :foreground magenta
+    :weight 'semi-bold
+    :height 1.18)
+
+   (markdown-header-face-3
+    :foreground teal
+    :weight 'semi-bold
+    :height 1.12)
+
+   (markdown-header-face-4
+    :foreground orange
+    :weight 'normal
+    :height 1.06)
+
+   (markdown-header-face-5
+    :foreground comments
+    :weight 'normal)
+
+   (markdown-header-face-6
+    :foreground dark-violet
+    :weight 'normal)
+
    ;; ---- Built-in diff-mode -----------------------------------------------
    ;; Do not inherit `hl-line' here: it makes additions look like selected
    ;; lines and leaves the light green foreground too low-contrast.
