@@ -444,6 +444,12 @@
     :weight 'bold
     :height 1.0)
 
+   (dd/mdx-preview-frontmatter-face :background bg-alt :extend t)
+   (dd/mdx-preview-frontmatter-delimiter-face
+    :foreground dark-blue :background (doom-darken bg-alt 0.06)
+    :weight 'semi-bold :extend t)
+   (dd/mdx-preview-source-face :background bg-alt)
+
    ;; Headings: the org-level colors and weights, plus a size step per level
    ;; from `org-document-title' height down to body text.  Keep
    ;; `markdown-header-scaling' off, or markdown-mode overrides the heights.
