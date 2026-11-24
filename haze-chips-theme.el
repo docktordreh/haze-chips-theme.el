@@ -444,11 +444,17 @@
     :weight 'bold
     :height 1.0)
 
-   (dd/mdx-preview-frontmatter-face :background bg-alt :extend t)
+   (dd/mdx-preview-frontmatter-face :background (doom-darken bg-alt 0.06) :extend t)
    (dd/mdx-preview-frontmatter-delimiter-face
-    :foreground dark-blue :background (doom-darken bg-alt 0.06)
-    :weight 'semi-bold :extend t)
-   (dd/mdx-preview-source-face :background bg-alt)
+    :inherit 'dd/mdx-preview-frontmatter-face :foreground dark-blue
+    :weight 'semi-bold)
+   (dd/mdx-preview-source-face :background bg-alt :extend t)
+   ;; Match Doom's rainbow-delimiters color cycle, softened into Haze's bg.
+   (dd/mdx-preview-depth-1-face :background (doom-blend blue bg 0.24))
+   (dd/mdx-preview-depth-2-face :background (doom-blend magenta bg 0.24))
+   (dd/mdx-preview-depth-3-face :background (doom-blend green bg 0.24))
+   (dd/mdx-preview-depth-4-face :background (doom-blend violet bg 0.24))
+   (dd/mdx-preview-depth-5-face :background (doom-blend teal bg 0.24))
 
    ;; Headings: the org-level colors and weights, plus a size step per level
    ;; from `org-document-title' height down to body text.  Keep
